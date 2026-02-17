@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Brief - Monday, February 16 2026</title>
+    <style>
+        /* ── Reset & base ─────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.55;
+        }
+        a { color: #58a6ff; text-decoration: none; }
+
+        /* ── Banner ───────────────────────────────────────────── */
+        .banner {
+            background: #161b22;
+            border-bottom: 2px solid #58a6ff;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .banner h1 {
+            font-size: 1.6rem;
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        .banner .meta {
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+
+        /* ── Summary cards ────────────────────────────────────── */
+        .summary {
+            display: flex;
+            gap: 16px;
+            padding: 24px 32px;
+            flex-wrap: wrap;
+        }
+        .summary-card {
+            flex: 1 1 140px;
+            background: #161b22;
+            border-radius: 8px;
+            padding: 18px 22px;
+            text-align: center;
+            min-width: 140px;
+        }
+        .summary-card .count {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .summary-card .label {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-top: 4px;
+        }
+        .card-critical .count { color: #f85149; }
+        .card-high .count     { color: #d29922; }
+        .card-medium .count   { color: #e3b341; }
+        .card-low .count      { color: #8b949e; }
+
+        /* ── Priority sections ────────────────────────────────── */
+        .content { padding: 0 32px 40px; }
+        .priority-section { margin-bottom: 28px; }
+        .priority-section h2 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        /* ── Alert cards ──────────────────────────────────────── */
+        .alert-card {
+            background: #161b22;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+        }
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        .alert-source {
+            font-size: 0.8rem;
+            color: #8b949e;
+            background: #21262d;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .alert-type {
+            font-weight: 600;
+            color: #c9d1d9;
+        }
+        .alert-time {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: #8b949e;
+        }
+        .alert-body {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .alert-object {
+            color: #58a6ff;
+            font-weight: 500;
+        }
+        .alert-detail {
+            color: #8b949e;
+        }
+
+        /* ── Badges ───────────────────────────────────────────── */
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-critical { background: #f8514922; color: #f85149; border: 1px solid #f85149; }
+        .badge-high     { background: #d2992222; color: #d29922; border: 1px solid #d29922; }
+        .badge-medium   { background: #e3b34122; color: #e3b341; border: 1px solid #e3b341; }
+        .badge-low      { background: #8b949e22; color: #8b949e; border: 1px solid #8b949e; }
+
+        /* ── Footer ───────────────────────────────────────────── */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #484f58;
+            font-size: 0.78rem;
+            border-top: 1px solid #21262d;
+        }
+
+        /* ── Print styles ─────────────────────────────────────── */
+        @media print {
+            body { background: #fff; color: #1a1a1a; }
+            .banner { background: #f6f8fa; border-bottom-color: #0969da; }
+            .banner h1 { color: #0969da; }
+            .summary-card, .alert-card { background: #f6f8fa; }
+            .card-critical .count { color: #cf222e; }
+            .card-high .count     { color: #9a6700; }
+            .card-medium .count   { color: #7d6a00; }
+            .alert-object { color: #0969da; }
+            .alert-detail, .alert-source, .alert-time, .banner .meta { color: #57606a; }
+            .alert-type { color: #1a1a1a; }
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <h1>Morning Brief &mdash; Monday, February 16 2026 &mdash; CORP.CONTOSO.COM</h1>
+        <span class="meta">Generated 2026-02-16 06:45:12</span>
+    </header>
+
+    <section class="summary">
+        <div class="summary-card card-critical">
+            <div class="count">4</div>
+            <div class="label">Critical</div>
+        </div>
+        <div class="summary-card card-high">
+            <div class="count">4</div>
+            <div class="label">High</div>
+        </div>
+        <div class="summary-card card-medium">
+            <div class="count">3</div>
+            <div class="label">Medium</div>
+        </div>
+        <div class="summary-card card-low">
+            <div class="count">1</div>
+            <div class="label">Low</div>
+        </div>
+    </section>
+
+    <main class="content">
+        <!-- ── CRITICAL ──────────────────────────────────────── -->
+        <div class="priority-section">
+            <h2 style="color: #f85149;">Critical (4)</h2>
+
+            <div class="alert-card" style="border-left: 4px solid #f85149;">
+                <div class="alert-header">
+                    <span class="badge badge-critical">CRITICAL</span>
+                    <span class="alert-source">ActiveDirectory</span>
+                    <span class="alert-type">LockedAccount</span>
+                    <span class="alert-time">06:32:14</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">John Smith (jsmith)</span>
+                    <span class="alert-detail">Account locked out at 2026-02-16 06:32. 3 failed attempts from IP 192.168.50.88 (unknown workstation).</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #f85149;">
+                <div class="alert-header">
+                    <span class="badge badge-critical">CRITICAL</span>
+                    <span class="alert-source">Infrastructure</span>
+                    <span class="alert-type">DiskSpaceCritical</span>
+                    <span class="alert-time">06:45:01</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">SQL02 (E:)</span>
+                    <span class="alert-detail">Disk E: is 97.3% full (12.4 GB free of 460 GB). Database transaction logs consuming space.</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #f85149;">
+                <div class="alert-header">
+                    <span class="badge badge-critical">CRITICAL</span>
+                    <span class="alert-source">Infrastructure</span>
+                    <span class="alert-type">DiskSpaceCritical</span>
+                    <span class="alert-time">06:45:01</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">SQL02 (C:)</span>
+                    <span class="alert-detail">Disk C: is 95.1% full (4.7 GB free of 100 GB).</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #f85149;">
+                <div class="alert-header">
+                    <span class="badge badge-critical">CRITICAL</span>
+                    <span class="alert-source">Infrastructure</span>
+                    <span class="alert-type">ServiceStopped</span>
+                    <span class="alert-time">06:45:03</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">DC03 (DNS)</span>
+                    <span class="alert-detail">Service 'DNS Server' is Stopped (StartMode: Auto). DNS resolution may be impacted for clients using DC03.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── HIGH ──────────────────────────────────────────── -->
+        <div class="priority-section">
+            <h2 style="color: #d29922;">High (4)</h2>
+
+            <div class="alert-card" style="border-left: 4px solid #d29922;">
+                <div class="alert-header">
+                    <span class="badge badge-high">HIGH</span>
+                    <span class="alert-source">Security</span>
+                    <span class="alert-type">PrivilegedGroupChange</span>
+                    <span class="alert-time">03:17:45</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">Domain Admins</span>
+                    <span class="alert-detail">Member 'tgarcia' added to 'Domain Admins' by 'admin-mwilson' at 03:17 AM. Verify this was an authorized change.</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #d29922;">
+                <div class="alert-header">
+                    <span class="badge badge-high">HIGH</span>
+                    <span class="alert-source">ActiveDirectory</span>
+                    <span class="alert-type">PasswordExpiring</span>
+                    <span class="alert-time">06:45:05</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">Maria Lopez (mlopez)</span>
+                    <span class="alert-detail">Password expires in 2 day(s) on 2026-02-18.</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #d29922;">
+                <div class="alert-header">
+                    <span class="badge badge-high">HIGH</span>
+                    <span class="alert-source">ActiveDirectory</span>
+                    <span class="alert-type">PasswordExpiring</span>
+                    <span class="alert-time">06:45:05</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">Robert Chen (rchen)</span>
+                    <span class="alert-detail">Password expires in 1 day(s) on 2026-02-17.</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #d29922;">
+                <div class="alert-header">
+                    <span class="badge badge-high">HIGH</span>
+                    <span class="alert-source">Certificates</span>
+                    <span class="alert-type">CertificateExpiring</span>
+                    <span class="alert-time">06:45:08</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">WEB01 - Wildcard SSL (*.corp.contoso.com)</span>
+                    <span class="alert-detail">Certificate expires in 9 day(s) on 2026-02-25 (Thumbprint: A1B2C3D4E5F6789012345678).</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── MEDIUM ────────────────────────────────────────── -->
+        <div class="priority-section">
+            <h2 style="color: #e3b341;">Medium (3)</h2>
+
+            <div class="alert-card" style="border-left: 4px solid #e3b341;">
+                <div class="alert-header">
+                    <span class="badge badge-medium">MEDIUM</span>
+                    <span class="alert-source">Certificates</span>
+                    <span class="alert-type">CertificateExpiring</span>
+                    <span class="alert-time">06:45:08</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">APP03 - API Gateway Cert</span>
+                    <span class="alert-detail">Certificate expires in 22 day(s) on 2026-03-10 (Thumbprint: FFEEDDCCBBAA998877665544).</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #e3b341;">
+                <div class="alert-header">
+                    <span class="badge badge-medium">MEDIUM</span>
+                    <span class="alert-source">Certificates</span>
+                    <span class="alert-type">CertificateExpiring</span>
+                    <span class="alert-time">06:45:08</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">EXCH01 - SMTP Relay Certificate</span>
+                    <span class="alert-detail">Certificate expires in 18 day(s) on 2026-03-06 (Thumbprint: 1122334455667788AABBCCDD).</span>
+                </div>
+            </div>
+
+            <div class="alert-card" style="border-left: 4px solid #e3b341;">
+                <div class="alert-header">
+                    <span class="badge badge-medium">MEDIUM</span>
+                    <span class="alert-source">ActiveDirectory</span>
+                    <span class="alert-type">PasswordExpiring</span>
+                    <span class="alert-time">06:45:05</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">Sarah Kim (skim)</span>
+                    <span class="alert-detail">Password expires in 11 day(s) on 2026-02-27.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── LOW ───────────────────────────────────────────── -->
+        <div class="priority-section">
+            <h2 style="color: #8b949e;">Low (1)</h2>
+
+            <div class="alert-card" style="border-left: 4px solid #8b949e;">
+                <div class="alert-header">
+                    <span class="badge badge-low">LOW</span>
+                    <span class="alert-source">ActiveDirectory</span>
+                    <span class="alert-type">AccountCreated</span>
+                    <span class="alert-time">16:30:00</span>
+                </div>
+                <div class="alert-body">
+                    <span class="alert-object">Emily Davis (edavis)</span>
+                    <span class="alert-detail">Account created at 2026-02-15 16:30 (new hire onboarding).</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Admin-MorningBrief &bull; 12 alerts &bull; 2026-02-16 06:45:12
+    </footer>
+</body>
+</html>
